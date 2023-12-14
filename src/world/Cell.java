@@ -71,13 +71,14 @@ public class Cell {
 		terrain.clicked();
 	}
 	
-	public void getEntity()
+	public Entity getEntity()
 	{
-		
+		return entity;
 	}
 	public void setEntity(Entity e)
 	{
-		
+		entity = e;
+		entity.setCell(this);
 	}
 
 

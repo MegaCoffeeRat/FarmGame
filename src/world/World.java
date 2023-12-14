@@ -1,26 +1,30 @@
 package world;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Graphics;
 
+import world.entity.plant.crop.Corn;
+import world.entity.plant.crop.Potato;
 import world.terrain.Dirt;
 import world.terrain.Grass;
 import world.terrain.Terrain;
 import world.terrain.Water;
 
-public class World {
+public class World<Entity> {
 	public static final int WIDTH = 30;
 	public static final int HEIGHT = 15;
 	
 	private static Cell[][] cells;
+	private ArrayList<Entity> entities;
 	
 	public World()
 	{
-		
+		entities = new ArrayList<Entity>();
 		cells = new Cell [WIDTH][HEIGHT];
 		
 		for(int i = 0; i<WIDTH; i++)
@@ -32,6 +36,9 @@ public class World {
 		}
 		
 		readFile();	
+		
+//		addEntity(new Corn(), 5, 5);
+//        addEntity(new Potato(), 10, 10);
 	}
 	
 	
@@ -113,11 +120,19 @@ public class World {
 			for(int j = 0; j<HEIGHT; j++)
 			{
 				cells[i][j].render(g);
-		}	}
+			}
+		}
+	}
+	
+	public void addEntity(Entity e, int x, int y)
+	{
+//		Cell.setEntity(this);
+//		cells[x][y].setEntity(this);
+	}
+	
 	
 	
 		
-	
-
-}
+		
+		
 }
