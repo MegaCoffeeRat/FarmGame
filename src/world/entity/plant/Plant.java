@@ -1,6 +1,10 @@
 package world.entity.plant;
 
+import world.entity.Entity;
 
-public class Plant {
-    
+abstract public class Plant extends Entity {
+    public Plant()
+    {
+    	
+    }
 }

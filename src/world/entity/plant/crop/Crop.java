@@ -1,5 +1,12 @@
 package world.entity.plant.crop;
 
-public class Crop {
+import world.entity.plant.Plant;
+
+abstract public class Crop extends Plant {
+	
+	public Crop()
+	{
+		
+	}
     
 }

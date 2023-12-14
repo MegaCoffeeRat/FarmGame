@@ -3,6 +3,7 @@ package world;
 import org.newdawn.slick.Graphics;
 
 import core.Main;
+import world.entity.Entity;
 import world.terrain.Dirt;
 import world.terrain.Terrain;
 
@@ -11,6 +12,7 @@ public class Cell {
 	private int y;
 	private static int bar;
 	private Terrain terrain;
+	private Entity entity;
 
 	
 	public Cell(int x, int y)
@@ -19,6 +21,11 @@ public class Cell {
 		this.x = x;
 		this.y = y;
 		setTerrain(new Dirt(false, false));
+	}
+	
+	public boolean hasEntity()
+	{
+		return entity != null;
 	}
 	
 	
@@ -62,6 +69,15 @@ public class Cell {
 	public void clicked()
 	{
 		terrain.clicked();
+	}
+	
+	public void getEntity()
+	{
+		
+	}
+	public void setEntity(Entity e)
+	{
+		
 	}
 
 
