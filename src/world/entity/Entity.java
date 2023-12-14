@@ -21,5 +21,10 @@ abstract public class Entity {
 	public void render(Graphics g)
 	{
 		g.fillOval(cell.getX(), cell.getY(), 32, 32);
+		
+		
 	}
+	
+	
+	
 }

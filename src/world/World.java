@@ -122,12 +122,19 @@ public class World<Entity> {
 				cells[i][j].render(g);
 			}
 		}
+		
+		for(Entity e : entities)
+		{
+			((world.entity.Entity) e).render(g);
+		}
 	}
 	
 	public void addEntity(Entity e, int x, int y)
 	{
-//		Cell.setEntity(this);
-//		cells[x][y].setEntity(this);
+		
+		entities.add(e);
+		cells[x][y].setEntity(e);
+		
 	}
 	
 	
