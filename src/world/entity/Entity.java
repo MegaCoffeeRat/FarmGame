@@ -4,27 +4,30 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 import world.Cell;
+import world.terrain.Dirt;
 import world.terrain.Terrain;
 
-abstract public class Entity {
+public abstract class Entity {
+
 	protected Cell cell;
 	protected Color color;
-	public Terrain terrain;
 	public Entity()
 	{
 		
 	}
+	public abstract void nextDay();
+	public abstract boolean isValid(Terrain t);
+	
+	public void render(Graphics g)
+	{
+		g.setColor(color);
+		g.fillOval(cell.getX() * Cell.getWidth(), cell.getY() * Cell.getHeight(), Cell.getWidth(), Cell.getHeight());
+	}
+	
 	public void setCell(Cell c)
 	{
 		cell = c;
 	}
-	public void render(Graphics g)
-	{
-		g.fillOval(cell.getX(), cell.getY(), 32, 32);
-		
-		
-	}
-	
 	
 	
 }

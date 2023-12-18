@@ -6,7 +6,8 @@ public class Potato extends Crop{
 	
 	public Potato()
 	{
-		color = Color.black;
+		maturity = 10;
+		color = Color.magenta;
 	}
     
 }

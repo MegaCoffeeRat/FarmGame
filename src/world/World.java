@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Graphics;
 
+import world.entity.Entity;
 import world.entity.plant.crop.Corn;
 import world.entity.plant.crop.Potato;
 import world.terrain.Dirt;
@@ -15,18 +16,17 @@ import world.terrain.Grass;
 import world.terrain.Terrain;
 import world.terrain.Water;
 
-public class World<Entity> {
+public class World {
 	public static final int WIDTH = 30;
 	public static final int HEIGHT = 15;
 	
 	private static Cell[][] cells;
-	private ArrayList<Entity> entities;
+	ArrayList<Entity> entities = new ArrayList<Entity>();
+
 	
 	public World()
 	{
-		entities = new ArrayList<Entity>();
 		cells = new Cell [WIDTH][HEIGHT];
-		
 		for(int i = 0; i<WIDTH; i++)
 		{
 			for(int j = 0; j<HEIGHT; j++)
@@ -34,11 +34,10 @@ public class World<Entity> {
 				cells[i][j] = new Cell(i, j);
 			}
 		}
-		
 		readFile();	
 		
-//		addEntity(new Corn(), 5, 5);
-//        addEntity(new Potato(), 10, 10);
+		addEntity(new Corn(), 4,0);
+		addEntity(new Potato(), 0,1);
 	}
 	
 	
@@ -81,12 +80,17 @@ public class World<Entity> {
 	
 	public void nextDay()
 	{
+		for(int i = 0; i <entities.size(); i++)
+		{
+			entities.get(i).nextDay();
+		}
 		for(int j = 0; j < HEIGHT; j++) {
 			for(int i = 0; i < WIDTH; i++)
 			{
 			cells[i][j].nextDay();
 			}
 		}
+		
 	}	
 	
 	public void readFile()
@@ -122,7 +126,6 @@ public class World<Entity> {
 				cells[i][j].render(g);
 			}
 		}
-		
 		for(Entity e : entities)
 		{
 			((world.entity.Entity) e).render(g);
@@ -131,10 +134,11 @@ public class World<Entity> {
 	
 	public void addEntity(Entity e, int x, int y)
 	{
-		
-		entities.add(e);
-		cells[x][y].setEntity(e);
-		
+		if(e.isValid(cells[x][y].getTerrain()))
+		{
+			entities.add(e);
+			cells[x][y].setEntity(e);
+		}
 	}
 	
 	

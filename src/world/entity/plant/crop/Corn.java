@@ -6,6 +6,7 @@ public class Corn extends Crop {
 	
 	public Corn()
 	{
+		maturity = 6;
 		color = Color.yellow;
 	}
     

@@ -54,6 +54,17 @@ public class Dirt extends Terrain {
         setImage();
     }
 	
+	
+	public boolean isSoil()
+	{
+		return soil;
+	}
+	public boolean isWet()
+	{
+		return wet;
+	}
+	
+	
 
 	
 }
