@@ -20,7 +20,9 @@ abstract public class Plant extends Entity {
     {
     	if(daysGrown >= maturity)
     	{
+    		focus = true;
     		return true;
+    		
     	}
     	return false;
     }

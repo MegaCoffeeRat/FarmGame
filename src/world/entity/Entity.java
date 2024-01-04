@@ -14,6 +14,9 @@ public abstract class Entity {
 	protected Cell cell;
 	protected int value;
 	protected boolean expired;
+	protected boolean focus;
+	
+	
 	
 	
 	public Entity()
@@ -22,6 +25,13 @@ public abstract class Entity {
 	}
 	public abstract void nextDay();
 	public abstract boolean isValid(Terrain t);
+	
+	
+	public boolean isFocus()
+	{
+		return focus;
+	}
+	
 	
 	
 	public void render(Graphics g)

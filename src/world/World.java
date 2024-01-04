@@ -97,18 +97,16 @@ public class World {
 	}	
 	
 	
-	public void cleanup()
+	public void cleanup() 
 	{
-		for(int i = 0; i <entities.size(); i++)
+		for( int i = entities.size() - 1; i >=0 ; i--)
 		{
 			if(entities.get(i).isExpired())
 			{
 				entities.remove(i);
-				
-			}
+			} 
 		}
 	}
-	
 	
 	public void readFile()
 	{

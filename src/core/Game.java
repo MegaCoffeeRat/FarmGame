@@ -28,18 +28,7 @@ public class Game extends BasicGameState
 	}
 	
 	
-	public static void gainMoney(int amount)
-	{
-		money += amount;
-	}
-	public static void spendMoney(int amount)
-	{
-		money -= amount;
-	}
-	public static boolean hasMoney(int amount)
-	{
-		return (money > 0);
-	}
+	
 	
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
@@ -106,6 +95,21 @@ public class Game extends BasicGameState
 
 	}
 	
+	
+	
+	
+	public static void gainMoney(int amount)
+	{
+		money += amount;
+	}
+	public static void spendMoney(int amount)
+	{
+		money -= amount;
+	}
+	public static boolean hasMoney(int amount)
+	{
+		return (money > 0);
+	}
 	
 	
 

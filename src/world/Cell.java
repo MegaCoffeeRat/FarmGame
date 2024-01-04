@@ -86,7 +86,15 @@ public class Cell {
 	}
 	public void clicked()
 	{
+		
+		
+		if(entity!=null && entity.isFocus())
+		{
+			entity.clicked();
+		}
+		else {
 		terrain.clicked();
+		}
 	}
 	
 	public Entity getEntity()
@@ -98,14 +106,16 @@ public class Cell {
 		entity = e;
 		entity.setCell(this);
 	}
+
 	
-	public void click_entity()
-	{
-		if(entity != null)
-		{
-			entity.clicked();
-		}
-	}
+// garbage method	
+//	public void click_entity()
+//	{
+//		if(entity != null)
+//		{
+//			entity.clicked();
+//		}
+//	}
 
 
 }
