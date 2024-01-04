@@ -14,6 +14,8 @@ public class Game extends BasicGameState
 	private int id;
 	private World world;
 	public static int barSpace;
+	private static int money;
+	
 
 	public Game(int id) 
 	{
@@ -25,8 +27,24 @@ public class Game extends BasicGameState
 		return id;		
 	}
 	
+	
+	public static void gainMoney(int amount)
+	{
+		money += amount;
+	}
+	public static void spendMoney(int amount)
+	{
+		money -= amount;
+	}
+	public static boolean hasMoney(int amount)
+	{
+		return (money > 0);
+	}
+	
+	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
+		Fonts.loadFonts();
 		Images.loadImages();
 
 		// This code happens when you enter a game state for the *first time.*
@@ -38,12 +56,26 @@ public class Game extends BasicGameState
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException
 	{	
 		// This is updates your game's logic every frame.  NO DRAWING.
+
+
+		
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
 		// This code renders shapes and images every frame.
 		world.render(g);
+		renderMoney(g);
+		world.cleanup();	
+
+	}
+	public void renderMoney(Graphics g)
+	{
+		g.setFont(Fonts.big);
+		g.setColor(Color.black);
+		g.drawString("$ " + money, 20, 50);
+		g.setColor(Color.white);
+		g.drawString("$ " + money, 20, 50);
 	}
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
@@ -69,6 +101,9 @@ public class Game extends BasicGameState
 	{
 		// This code happens every time the user presses the mouse
 		world.mousePressed(button, x, y);
+		world.cleanup();
+		
+
 	}
 	
 	

@@ -1,5 +1,6 @@
 package world.entity.plant.crop;
 
+import core.Game;
 import world.entity.plant.Plant;
 import world.terrain.Dirt;
 import world.terrain.Terrain;
@@ -23,6 +24,17 @@ public abstract class Crop extends Plant {
 		if(d.isSoil() && d.isWet())
 		{
 			daysGrown++;
+			setImage();
+		}
+	}
+	
+	public void clicked()
+	{
+		if(isMature())
+		{
+			cell.removeEntity();
+			expired = true;
+			Game.gainMoney(value);
 		}
 	}
 }

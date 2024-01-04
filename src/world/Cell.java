@@ -1,9 +1,11 @@
 package world;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 import core.Main;
 import world.entity.Entity;
+import world.entity.plant.crop.Crop;
 import world.terrain.Dirt;
 import world.terrain.Terrain;
 
@@ -28,6 +30,15 @@ public class Cell {
 		return entity != null;
 	}
 	
+
+	public void removeEntity()
+	{
+		if(entity != null)
+		{
+			entity.setCell(null);
+			entity = null;
+		}
+	}
 	
 	public void nextDay()
 	{
@@ -65,6 +76,13 @@ public class Cell {
 	public void render(Graphics g)
 	{
 		terrain.render(g);
+		if(entity !=null && entity instanceof Crop && ((Crop) entity).isMature())
+		{
+			g.setColor(Color.white);
+			g.setLineWidth(2);
+			g.drawRect(getX()*getWidth(), getY()*getHeight(), getWidth()-4, getHeight()-4);
+			g.resetLineWidth();
+		}
 	}
 	public void clicked()
 	{
@@ -79,6 +97,14 @@ public class Cell {
 	{
 		entity = e;
 		entity.setCell(this);
+	}
+	
+	public void click_entity()
+	{
+		if(entity != null)
+		{
+			entity.clicked();
+		}
 	}
 
 

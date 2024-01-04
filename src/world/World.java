@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Graphics;
 
+import core.Main;
 import world.entity.Entity;
 import world.entity.plant.crop.Corn;
 import world.entity.plant.crop.Potato;
@@ -37,14 +38,16 @@ public class World {
 		readFile();	
 		
 		addEntity(new Corn(), 4,0);
-		addEntity(new Potato(), 0,1);
+		addEntity(new Potato(), 1,0);
+		addEntity(new Potato(), 0,0);
+
 	}
 	
 	
 	
 	public boolean inBounds(int x, int y)
     {
-        return x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT;
+        return x >= 0 && x < Main.getScreenWidth() && y >= 0 && y < HEIGHT * Cell.getHeight();
     }
 	
 	
@@ -52,7 +55,7 @@ public class World {
 	{
 		 x = x / Cell.getWidth();
 		 y = y / Cell.getHeight();
-		if(inBounds(x / Cell.getWidth() ,y / Cell.getHeight())) 
+		if(inBounds(x  ,y)); 
 		{
 			cells[x][y].clicked();
 		}
@@ -93,6 +96,20 @@ public class World {
 		
 	}	
 	
+	
+	public void cleanup()
+	{
+		for(int i = 0; i <entities.size(); i++)
+		{
+			if(entities.get(i).isExpired())
+			{
+				entities.remove(i);
+				
+			}
+		}
+	}
+	
+	
 	public void readFile()
 	{
 		try
@@ -117,18 +134,15 @@ public class World {
 		}
 	}
 	
-	public void render(Graphics g)
-	{
-		for(int i = 0; i<WIDTH; i++)
-		{
-			for(int j = 0; j<HEIGHT; j++)
-			{
+	public void render(Graphics g) {
+		for(int i = 0; i < WIDTH; i++) {
+			for(int j = 0; j < HEIGHT; j ++) {
 				cells[i][j].render(g);
 			}
 		}
-		for(Entity e : entities)
+		for(int i = 0; i <entities.size(); i++)
 		{
-			((world.entity.Entity) e).render(g);
+			entities.get(i).render(g);
 		}
 	}
 	
@@ -141,9 +155,5 @@ public class World {
 		}
 	}
 	
-	
-	
-		
-		
 		
 }
