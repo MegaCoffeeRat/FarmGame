@@ -17,6 +17,12 @@ public class Game extends BasicGameState
 	public static int barSpace;
 	private static int money;
 	private ItemBar itemBar;
+	public static GameContainer gc;
+	
+	
+	
+	
+
 	
 
 	public Game(int id) 
@@ -35,11 +41,13 @@ public class Game extends BasicGameState
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
+		this.gc = gc;
+
+		
 		Fonts.loadFonts();
 		Images.loadImages();
 
-		// This code happens when you enter a game state for the *first time.*
-		gc.setShowFPS(true);
+		gc.setShowFPS(false);
 		world = new World();
 		itemBar = new ItemBar();
 		
@@ -88,6 +96,7 @@ public class Game extends BasicGameState
 		{
 			world.nextDay();
 		}
+		itemBar.keyPressed(key, c);
 	}
 	
 	public void mousePressed(int button, int x, int y)

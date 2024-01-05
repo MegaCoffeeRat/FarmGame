@@ -3,6 +3,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 
 import core.Images;
+import item.Item;
 import world.Cell;
 
 abstract public class Terrain {
@@ -27,6 +28,6 @@ abstract public class Terrain {
 	
 	
 	abstract public void nextDay();
-	abstract public void clicked();
+	abstract public void clicked(Item item);
 
 }
