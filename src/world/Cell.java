@@ -12,7 +12,7 @@ import world.terrain.Terrain;
 public class Cell {
 	private int x;
 	private int y;
-	private static int bar;
+	public static int bar;
 	private Terrain terrain;
 	private Entity entity;
 

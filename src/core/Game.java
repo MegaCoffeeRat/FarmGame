@@ -60,7 +60,7 @@ public class Game extends BasicGameState
 		world.render(g);
 		renderMoney(g);
 		world.cleanup();	
-
+		itemBar.render(g);
 	}
 	public void renderMoney(Graphics g)
 	{
