@@ -16,6 +16,9 @@ public class Images {
 	public static SpriteSheet potato;
 	
 	
+	public static Image CornSeed;
+	public static Image PotatoSeed;
+	
 	
 	
 	public static void loadImages()
@@ -32,6 +35,13 @@ public class Images {
 			
 			corn = new SpriteSheet("res/corn.png", 32,48,0);
 			potato = new SpriteSheet("res/potato.png", 32,48,0);
+			
+			
+			CornSeed = new Image("res/cornSeed.png");
+
+			PotatoSeed = new Image("res/potatoSeed.png");
+
+			
 		}
 		catch(SlickException e )
 		{

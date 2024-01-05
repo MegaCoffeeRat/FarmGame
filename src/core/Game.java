@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import item.ItemBar;
 import world.World;
 
 public class Game extends BasicGameState 
@@ -15,6 +16,7 @@ public class Game extends BasicGameState
 	private World world;
 	public static int barSpace;
 	private static int money;
+	private ItemBar itemBar;
 	
 
 	public Game(int id) 
@@ -39,6 +41,8 @@ public class Game extends BasicGameState
 		// This code happens when you enter a game state for the *first time.*
 		gc.setShowFPS(true);
 		world = new World();
+		itemBar = new ItemBar();
+		
 		
 	}
 
