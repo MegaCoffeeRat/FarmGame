@@ -9,7 +9,8 @@ import core.Main;
 import world.Cell;
 
 abstract public class Item {
-	protected Image img;
+	protected Image img; 
+	public boolean expired;
 	
 	public Item()
 	{
@@ -35,6 +36,22 @@ abstract public class Item {
 	
 	public Image getImage()
 	{return img;}
+	
+	
+	
+	public boolean IsExpired()
+	{
+		return expired;
+	}
+	
+	public void expire()
+	{
+		expired = true;
+	}
+	
+	
+	
+	
 	
 	
 	

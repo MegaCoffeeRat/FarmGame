@@ -8,6 +8,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import item.ItemBar;
+import world.Cell;
 import world.World;
 
 public class Game extends BasicGameState 
@@ -18,6 +19,10 @@ public class Game extends BasicGameState
 	private static int money;
 	private ItemBar itemBar;
 	public static GameContainer gc;
+	
+	private static int curStamina;
+	private static int maxStamina ;
+	public static final int BASE_STAMINA = 50;
 	
 	
 	
@@ -36,13 +41,30 @@ public class Game extends BasicGameState
 	}
 	
 	
+	public static boolean hasStamina(int amount)
+	{
+		return curStamina >= amount;
+	}
+	
+	public static float getPercentStamina()
+	{return (float) curStamina / maxStamina * 100;}
 	
 	
+	public static void expendStamina(int amount)
+	{
+		curStamina -= amount;
+	}
+	
+	public void resetStamina()
+	{
+		curStamina = maxStamina;
+	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		this.gc = gc;
-
+		curStamina = BASE_STAMINA;
+		maxStamina = 100;
 		
 		Fonts.loadFonts();
 		Images.loadImages();
@@ -69,6 +91,15 @@ public class Game extends BasicGameState
 		renderMoney(g);
 		world.cleanup();	
 		itemBar.render(g);
+		renderStamina(g);
+		
+		
+		
+		
+		
+		
+		
+		System.out.println(curStamina);
 	}
 	public void renderMoney(Graphics g)
 	{
@@ -78,6 +109,17 @@ public class Game extends BasicGameState
 		g.setColor(Color.white);
 		g.drawString("$ " + money, 20, 50);
 	}
+	
+	public void renderStamina(Graphics g)
+	{
+		g.setColor(new Color(0,0,100));
+		g.fillRect(0,  Cell.getHeight()*World.HEIGHT, Main.getScreenWidth(), 10);
+		
+		g.setColor(new Color(255,255,0));
+		g.fillRect(0,  Cell.getHeight()*World.HEIGHT, Main.getScreenHeight(), 10);
+		
+	}
+	
 	
 	public void enter(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
@@ -95,6 +137,7 @@ public class Game extends BasicGameState
 		if(key == Input.KEY_SPACE)
 		{
 			world.nextDay();
+			resetStamina();
 		}
 		itemBar.keyPressed(key, c);
 	}
@@ -102,8 +145,9 @@ public class Game extends BasicGameState
 	public void mousePressed(int button, int x, int y)
 	{
 		// This code happens every time the user presses the mouse
-		world.mousePressed(button, x, y);
+		world.mousePressed(button, x, y, itemBar.getSelectedItem());
 		world.cleanup();
+		itemBar.cleanup();
 		
 
 	}

@@ -1,6 +1,7 @@
 package world.terrain;
 import org.newdawn.slick.Image;
 import core.Images;
+import item.Item;
 
 
 public class Water extends Terrain {
@@ -16,7 +17,7 @@ public class Water extends Terrain {
 	}
 
 	@Override
-	public void clicked() {
+	public void clicked(Item item) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,4 +1,4 @@
-package item;
+ package item;
 
 import java.util.ArrayList;
 
@@ -17,6 +17,10 @@ public class ItemBar {
 		items.add(new PotatoSeed());
 		items.add(new CornSeed());
 		items.add(new CornSeed());
+		
+		items.add(new Hoe());
+		items.add(new Bucket());
+		
 		
 	}
 	
@@ -85,5 +89,25 @@ public class ItemBar {
 			} 
 		}
 	}
+	
+	public void cleanup()
+	{
+		for(int i = 0; i < items.size(); i++)
+		{
+			if(items.get(i).IsExpired()){
+				{
+					if(selectedIndex == i)
+					{
+						selectedIndex = -1;
+						setCursor();
+					}
+					items.remove(i);
+					i--;
+				}
+			}
+		}
+	}
+	
+	
 	
 }

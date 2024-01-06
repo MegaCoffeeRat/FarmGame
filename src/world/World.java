@@ -9,6 +9,7 @@ import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Graphics;
 
 import core.Main;
+import item.Item;
 import world.entity.Entity;
 import world.entity.plant.crop.Corn;
 import world.entity.plant.crop.Potato;
@@ -22,7 +23,7 @@ public class World {
 	public static final int HEIGHT = 15;
 	
 	private static Cell[][] cells;
-	ArrayList<Entity> entities = new ArrayList<Entity>();
+	static ArrayList<Entity> entities = new ArrayList<Entity>();
 
 	
 	public World()
@@ -45,19 +46,19 @@ public class World {
 	
 	
 	
-	public boolean inBounds(int x, int y)
+	public static boolean inBounds(int x, int y)
     {
         return x >= 0 && x < Main.getScreenWidth() && y >= 0 && y < HEIGHT * Cell.getHeight();
     }
 	
 	
-	public void mousePressed(int button, int x, int y)
+	public void mousePressed(int button, int x, int y, Item item)
 	{
 		 x = x / Cell.getWidth();
 		 y = y / Cell.getHeight();
 		if(inBounds(x  ,y)); 
 		{
-			cells[x][y].clicked();
+			cells[x][y].clicked(item);
 		}
 	}
 	public void setTerrain(Cell cell, char code)
@@ -144,7 +145,7 @@ public class World {
 		}
 	}
 	
-	public void addEntity(Entity e, int x, int y)
+	public static void addEntity(Entity e, int x, int y)
 	{
 		if(e.isValid(cells[x][y].getTerrain()))
 		{

@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 
 import core.Main;
+import item.Item;
 import world.entity.Entity;
 import world.entity.plant.crop.Crop;
 import world.terrain.Dirt;
@@ -84,7 +85,7 @@ public class Cell {
 			g.resetLineWidth();
 		}
 	}
-	public void clicked()
+	public void clicked(Item item)
 	{
 		
 		
@@ -93,7 +94,7 @@ public class Cell {
 			entity.clicked();
 		}
 		else {
-		terrain.clicked();
+		terrain.clicked(item);
 		}
 	}
 	

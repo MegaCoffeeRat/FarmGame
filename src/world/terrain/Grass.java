@@ -3,6 +3,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 
 import core.Images;
+import item.Item;
 
 public class Grass extends Terrain {
 	
@@ -19,7 +20,7 @@ public class Grass extends Terrain {
 	}
 
 	@Override
-	public void clicked() {
+	public void clicked(Item item) {
 		// TODO Auto-generated method stub
 		
 	}

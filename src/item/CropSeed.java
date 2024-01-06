@@ -6,6 +6,6 @@ abstract public class CropSeed extends Seed{
 	
 	
 	
-	public abstract  Crop makeCrop();
+	public abstract Crop makeCrop();
 
 }
