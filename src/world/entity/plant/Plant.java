@@ -29,7 +29,7 @@ abstract public class Plant extends Entity {
     
     public float percentMaturity()
     {
-		return ((float)(daysGrown / maturity));
+		return (float) daysGrown/ (float) maturity;
     }
     
     

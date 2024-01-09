@@ -21,14 +21,12 @@ public class Game extends BasicGameState
 	public static GameContainer gc;
 	
 	private static int curStamina;
-	private static int maxStamina ;
-	public static final int BASE_STAMINA = 50;
+	private static int maxStamina;
+	public static final int BASE_STAMINA = 100;
 	
 	
 	
-	
-
-	
+	public static int days;
 
 	public Game(int id) 
 	{
@@ -41,18 +39,25 @@ public class Game extends BasicGameState
 	}
 	
 	
+	
+	
 	public static boolean hasStamina(int amount)
 	{
 		return curStamina >= amount;
 	}
 	
 	public static float getPercentStamina()
-	{return (float) curStamina / maxStamina * 100;}
+	{
+		return (float) curStamina / maxStamina;
+	}
 	
 	
 	public static void expendStamina(int amount)
 	{
-		curStamina -= amount;
+		if(hasStamina(amount))
+		{
+			curStamina -= amount;
+		}	
 	}
 	
 	public void resetStamina()
@@ -63,8 +68,8 @@ public class Game extends BasicGameState
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		this.gc = gc;
+		maxStamina = BASE_STAMINA;
 		curStamina = BASE_STAMINA;
-		maxStamina = 100;
 		
 		Fonts.loadFonts();
 		Images.loadImages();
@@ -93,12 +98,7 @@ public class Game extends BasicGameState
 		itemBar.render(g);
 		renderStamina(g);
 		
-		
-		
-		
-		
-		
-		
+
 		System.out.println(curStamina);
 	}
 	public void renderMoney(Graphics g)
@@ -113,10 +113,10 @@ public class Game extends BasicGameState
 	public void renderStamina(Graphics g)
 	{
 		g.setColor(new Color(0,0,100));
-		g.fillRect(0,  Cell.getHeight()*World.HEIGHT, Main.getScreenWidth(), 10);
+		g.fillRect(0, Cell.getHeight() * World.HEIGHT, Main.getScreenWidth(), 10);
 		
-		g.setColor(new Color(255,255,0));
-		g.fillRect(0,  Cell.getHeight()*World.HEIGHT, Main.getScreenHeight(), 10);
+		g.setColor(new Color( 1-getPercentStamina(), getPercentStamina(),0));
+		g.fillRect(0,  Cell.getHeight() * World.HEIGHT, Main.getScreenWidth() * getPercentStamina(), 10);
 		
 	}
 	
@@ -148,11 +148,7 @@ public class Game extends BasicGameState
 		world.mousePressed(button, x, y, itemBar.getSelectedItem());
 		world.cleanup();
 		itemBar.cleanup();
-		
-
 	}
-	
-	
 	
 	
 	public static void gainMoney(int amount)
