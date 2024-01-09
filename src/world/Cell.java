@@ -107,16 +107,21 @@ public class Cell {
 		entity = e;
 		entity.setCell(this);
 	}
-
 	
-// garbage method	
-//	public void click_entity()
-//	{
-//		if(entity != null)
-//		{
-//			entity.clicked();
-//		}
-//	}
+	
+	public int getXPixel()
+	{
+		return x;
+	}
+	
 
-
+	public int getYPixel()
+	{
+		return y;
+	}
+	
+	boolean isMouseOver()
+	{
+		
+	}
 }

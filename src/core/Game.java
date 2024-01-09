@@ -97,9 +97,19 @@ public class Game extends BasicGameState
 		world.cleanup();	
 		itemBar.render(g);
 		renderStamina(g);
+		renderDays(g);
 		
 
 		System.out.println(curStamina);
+		
+	}
+	
+	
+	public void renderDays(Graphics g)
+	{
+		g.setFont(Fonts.big);
+		g.setColor(Color.black);
+		g.drawString("Days:  " + World.days, 100, 50);
 	}
 	public void renderMoney(Graphics g)
 	{

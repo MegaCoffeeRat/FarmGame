@@ -22,6 +22,8 @@ public class World {
 	public static final int WIDTH = 30;
 	public static final int HEIGHT = 15;
 	
+	public static int days = 1;
+	
 	private static Cell[][] cells;
 	static ArrayList<Entity> entities = new ArrayList<Entity>();
 
@@ -84,6 +86,7 @@ public class World {
 	
 	public void nextDay()
 	{
+		days = days +1;
 		for(int i = 0; i <entities.size(); i++)
 		{
 			entities.get(i).nextDay();
@@ -92,9 +95,16 @@ public class World {
 			for(int i = 0; i < WIDTH; i++)
 			{
 			cells[i][j].nextDay();
+		
 			}
 		}
 		
+	}
+	
+	
+	public static int days()
+	{
+		return days;
 	}
 
 	
