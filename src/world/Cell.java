@@ -109,19 +109,71 @@ public class Cell {
 	}
 	
 	
-	public int getXPixel()
-	{
-		return x;
-	}
+//	public int getXPixel()
+//	{
+//		return getX()*getWidth();
+//	}
+//	
+//
+//	public int getYPixel()
+//	{
+//		return getY() * getHeight();
+//	}
+//	
+//	boolean isMouseOver(int x, int y)
+//	{
+//		int cellX = getX() * getWidth();
+//		int cellY = getY() * getHeight();
+//		
+//	   return x >= cellX && x <= cellX + getWidth() && y >= cellY && y <= cellY + getHeight();
+//
+//	}
 	
+	
+	// In class Cell
+	public int getXPixel() {
+	    return getX() * getWidth();
+	}
 
-	public int getYPixel()
-	{
-		return y;
+	public int getYPixel() {
+	    return getY() * getHeight();
+	}
+
+	public boolean isMouseOver(int mouseX, int mouseY) {
+	    int cellX = getX() * getWidth();
+	    int cellY = getY() * getHeight();
+	    return mouseX >= cellX && mouseX <= cellX + getWidth() && mouseY >= cellY && mouseY <= cellY + getHeight();
+	}
+
+	public void render(Graphics g, int mouseX, int mouseY) {
+	    terrain.render(g);
+
+	    // Check if the mouse is over this cell
+	    if (isMouseOver(mouseX, mouseY)) {
+	        g.setColor(new Color(255, 255, 255, 100)); // Semi-transparent white
+	        g.fillRect(getXPixel(), getYPixel(), getWidth(), getHeight());
+	    }
+
+	    if (entity != null && entity instanceof Crop && ((Crop) entity).isMature()) {
+	        g.setColor(Color.white);
+	        g.setLineWidth(2);
+	        g.drawRect(getXPixel(), getYPixel(), getWidth() - 4, getHeight() - 4);
+	        g.resetLineWidth();
+	    }
 	}
 	
-	boolean isMouseOver()
-	{
-		
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -54,15 +54,14 @@ public class World {
     }
 	
 	
-	public void mousePressed(int button, int x, int y, Item item)
-	{
-		 x = x / Cell.getWidth();
-		 y = y / Cell.getHeight();
-		if(inBounds(x  ,y)); 
-		{
-			cells[x][y].clicked(item);
-		}
-	}
+	public void mousePressed(int button, int x, int y, Item item) {
+        x = x / Cell.getWidth();
+        y = y / Cell.getHeight();
+
+        if (inBounds(x, y)) {
+            cells[x][y].clicked(item);
+        }
+    }
 	public void setTerrain(Cell cell, char code)
 	{
 		 if(code == '.')
@@ -145,17 +144,16 @@ public class World {
 		}
 	}
 	
-	public void render(Graphics g) {
-		for(int i = 0; i < WIDTH; i++) {
-			for(int j = 0; j < HEIGHT; j ++) {
-				cells[i][j].render(g);
-			}
-		}
-		for(int i = 0; i <entities.size(); i++)
-		{
-			entities.get(i).render(g);
-		}
-	}
+	public void render(Graphics g, int mouseX, int mouseY) {
+        for (int i = 0; i < WIDTH; i++) {
+            for (int j = 0; j < HEIGHT; j++) {
+                cells[i][j].render(g, mouseX, mouseY); // Pass mouse coordinates to the render method
+            }
+        }
+        for (int i = 0; i < entities.size(); i++) {
+            entities.get(i).render(g);
+        }
+    }
 	
 	public static void addEntity(Entity e, int x, int y)
 	{

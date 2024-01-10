@@ -92,7 +92,11 @@ public class Game extends BasicGameState
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
 		// This code renders shapes and images every frame.
-		world.render(g);
+		
+		int x = gc.getInput().getMouseX();
+	    int y = gc.getInput().getMouseY();
+		
+		world.render(g, x, y);
 		renderMoney(g);
 		world.cleanup();	
 		itemBar.render(g);
@@ -154,6 +158,9 @@ public class Game extends BasicGameState
 	
 	public void mousePressed(int button, int x, int y)
 	{
+		
+//		int mouseX = gc.getInput().getMouseX();
+//		int mouseY = gc.getInput().getMouseY();
 		// This code happens every time the user presses the mouse
 		world.mousePressed(button, x, y, itemBar.getSelectedItem());
 		world.cleanup();
