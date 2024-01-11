@@ -11,9 +11,12 @@ public class Main extends StateBasedGame
 	public final static int FRAMES_PER_SECOND = 60;
 	private static AppGameContainer appgc;
 	
+	
+	
     public static final int GAME_ID  = 0;
-    
-    private BasicGameState game;  
+    private static final int MENU_ID = 1;
+    private BasicGameState game;
+    private BasicGameState menu;
     
 	public Main(String name) 
 	{
@@ -36,6 +39,7 @@ public class Main extends StateBasedGame
 	public void initStatesList(GameContainer gc) throws SlickException 
 	{
 		addState(game);
+		addState(menu);
 	}
 
 	public static void main(String[] args) 

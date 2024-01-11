@@ -24,6 +24,8 @@ public class Game extends BasicGameState
 	private static int maxStamina;
 	public static final int BASE_STAMINA = 100;
 	
+	private StateBasedGame sbg;
+	
 	
 	
 	public static int days;

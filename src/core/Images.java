@@ -22,6 +22,8 @@ public class Images {
 	public static Image Hoe;
 	public static Image Bucket;
 	
+	public static Image Title;
+	
 	
 	
 	public static void loadImages()
@@ -47,6 +49,8 @@ public class Images {
 			
 			Hoe = new Image("res/hoe.png");
 			Bucket = new Image("res/bucket.png");
+			
+			Title = new Image("res/bucket.png");
 		
 			
 			
