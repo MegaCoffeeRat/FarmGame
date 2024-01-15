@@ -4,9 +4,11 @@ import core.Images;
 
 public class Hoe extends Tool{
 	
-	Hoe()
+	public Hoe()
 	{
 		img = Images.Hoe;
+		setName("Hoe");
+		setCost(4);
 	}
 	
 

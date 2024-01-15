@@ -16,13 +16,16 @@ public class Game extends BasicGameState
 	private int id;
 	private World world;
 	public static int barSpace;
-	private static int money;
+	private static int money = 100;
 	private ItemBar itemBar;
 	public static GameContainer gc;
 	
 	private static int curStamina;
 	private static int maxStamina;
 	public static final int BASE_STAMINA = 100;
+	private static ItemBar items;
+	
+	public static int lifetimeEarnings = 0;
 	
 	private StateBasedGame sbg;
 	
@@ -40,6 +43,13 @@ public class Game extends BasicGameState
 		return id;		
 	}
 	
+	
+	public static ItemBar getItems() {
+        if (items == null) {
+            items = new ItemBar();
+        }
+        return items;
+    }
 	
 	
 	
@@ -81,6 +91,8 @@ public class Game extends BasicGameState
 		world = new World();
 		itemBar = new ItemBar();
 		
+
+		
 		
 	}
 
@@ -91,6 +103,14 @@ public class Game extends BasicGameState
 
 		
 	}
+	
+	public static int getMoney() {
+        return money;
+    }
+	
+	 public static int getCurrentDay() {
+	        return days;
+	    }
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
@@ -180,10 +200,11 @@ public class Game extends BasicGameState
 	}
 	
 	
-	public static void gainMoney(int amount)
-	{
-		money += amount;
+	public static void gainMoney(int amount) {
+	    money += amount;
+	    lifetimeEarnings += amount;
 	}
+
 	public static void spendMoney(int amount)
 	{
 		money -= amount;
@@ -192,6 +213,8 @@ public class Game extends BasicGameState
 	{
 		return (money > 0);
 	}
+	
+	
 	
 	
 

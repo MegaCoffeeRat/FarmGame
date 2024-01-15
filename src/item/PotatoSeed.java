@@ -8,9 +8,11 @@ import world.entity.plant.crop.Potato;
 public class PotatoSeed extends CropSeed{
 	
 	
-	PotatoSeed()
+	public PotatoSeed()
 	{
 		img = Images.PotatoSeed;
+		setName("Potato");
+		setCost(4);
 	}
 	
 	

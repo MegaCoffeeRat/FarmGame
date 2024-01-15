@@ -11,13 +11,9 @@ import core.Game;
 public class ItemBar {
 	public ArrayList<Item> items = new ArrayList<Item>(); 
 	public int selectedIndex = -1;
+	public int MAX_ITEMS = 10;
 	public ItemBar()
 	{
-		items.add(new PotatoSeed());
-		items.add(new PotatoSeed());
-		items.add(new CornSeed());
-		items.add(new CornSeed());
-		
 		items.add(new Hoe());
 		items.add(new Bucket());
 		
@@ -38,6 +34,16 @@ public class ItemBar {
 	{
 		selectedIndex = -1;
 	}
+	public boolean hasSpace()
+	{
+		return items.size() < MAX_ITEMS;
+	}
+	
+	public void addItem(Item item) {
+        if (hasSpace()) {
+            items.add(item);
+        }
+    }
 
 	
 	
@@ -107,6 +113,11 @@ public class ItemBar {
 			}
 		}
 	}
+	
+	 public ArrayList<Item> getItems() {
+	        return items;
+	    }
+
 	
 	
 	

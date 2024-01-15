@@ -5,9 +5,11 @@ import core.Images;
 public class Bucket extends Tool{
 
 	
-	Bucket()
+	public Bucket()
 	{
 		img = Images.Bucket;
+		setName("Bucket");
+		setCost(4);
 	}
 	
 }

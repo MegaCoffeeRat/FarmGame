@@ -12,11 +12,25 @@ abstract public class Item {
 	protected Image img; 
 	public boolean expired;
 	
+	String name;
+	int cost;
+	
 	public Item()
 	{
 		
 	}
 	
+	public String getName()
+	{return name;}
+	
+	public int getCost()
+	{return cost;}
+	
+	public void setName(String name)
+	{this.name = name;}
+	
+	public void setCost(int cost)
+	{this.cost = cost;}
 	
 	public void render(Graphics g, int index, int selectedIndex)
 	{
