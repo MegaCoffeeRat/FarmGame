@@ -53,6 +53,15 @@ public class Game extends BasicGameState
 	
 	
 	
+	public static ItemBar getItemBar() {
+        if (items == null) {
+            items = ItemBar.getInstance();
+        }
+        return items;
+    }
+	
+	
+	
 	public static boolean hasStamina(int amount)
 	{
 		return curStamina >= amount;

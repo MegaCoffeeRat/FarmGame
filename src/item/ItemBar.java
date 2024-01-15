@@ -9,6 +9,8 @@ import org.newdawn.slick.SlickException;
 import core.Game;
 
 public class ItemBar {
+    private static ItemBar instance;
+
 	public ArrayList<Item> items = new ArrayList<Item>(); 
 	public int selectedIndex = -1;
 	public int MAX_ITEMS = 10;
@@ -19,6 +21,21 @@ public class ItemBar {
 		
 		
 	}
+	
+	
+	  public static ItemBar getInstance() {
+	        if (instance == null) {
+	            instance = new ItemBar();
+	        }
+	        return instance;
+	    }
+
+	    // Getter for items
+	    public ArrayList<Item> getItems() {
+	        return items;
+	    }
+	
+	
 	
 	public boolean hasSelectedItem()
 	{
@@ -114,9 +131,9 @@ public class ItemBar {
 		}
 	}
 	
-	 public ArrayList<Item> getItems() {
-	        return items;
-	    }
+//	 public ArrayList<Item> getItems() {
+//	        return items;
+//	    }
 
 	
 	
