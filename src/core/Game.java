@@ -70,6 +70,7 @@ public class Game extends BasicGameState
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException 
 	{
 		this.gc = gc;
+		this.sbg = sbg;
 		maxStamina = BASE_STAMINA;
 		curStamina = BASE_STAMINA;
 		
@@ -150,12 +151,21 @@ public class Game extends BasicGameState
 	public void keyPressed(int key, char c)
 	{
 		// This code happens every time the user presses a key
-		if(key == Input.KEY_SPACE)
-		{
-			world.nextDay();
-			resetStamina();
-		}
-		itemBar.keyPressed(key, c);
+		 if (key == Input.KEY_SPACE)
+		    {
+		        world.nextDay();
+		        resetStamina();
+		    }
+		    else if (key == Input.KEY_E)
+		    {
+		        // Switch to Shop state
+		        sbg.enterState(Main.SHOP_ID);
+
+		        // Tell items to clear selection and set cursor
+		        itemBar.clearSelection();
+		        itemBar.setCursor();
+		    }
+		    itemBar.keyPressed(key, c);
 	}
 	
 	public void mousePressed(int button, int x, int y)

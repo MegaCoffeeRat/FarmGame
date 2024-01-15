@@ -1,5 +1,7 @@
 package core;
 
+import java.awt.Menu;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
@@ -13,16 +15,25 @@ public class Main extends StateBasedGame
 	
 	
 	
-    public static final int GAME_ID  = 0;
-    private static final int MENU_ID = 1;
-    private BasicGameState game;
-    private BasicGameState menu;
+	public static final int TITLE_ID = 0;
+    public static final int GAME_ID  = 1;
+    public static final int SHOP_ID = 2;
+  
     
+  
+    private BasicGameState game;
+    private BasicGameState titleState;
+    private BasicGameState Shop;
 	public Main(String name) 
 	{
 		super(name);
 		
+		
 		game = new Game(GAME_ID);
+		titleState = new Title(TITLE_ID);
+		
+		Shop = new Shop(SHOP_ID);
+		
 	}
 
 	public static int getScreenWidth()
@@ -38,8 +49,10 @@ public class Main extends StateBasedGame
 
 	public void initStatesList(GameContainer gc) throws SlickException 
 	{
+		addState(titleState);
 		addState(game);
-		addState(menu);
+		addState(Shop);
+	
 	}
 
 	public static void main(String[] args) 

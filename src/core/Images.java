@@ -23,6 +23,10 @@ public class Images {
 	public static Image Bucket;
 	
 	public static Image Title;
+	public static Image scaledTitle;
+	
+	
+	public static Image Shop;
 	
 	
 	
@@ -50,7 +54,8 @@ public class Images {
 			Hoe = new Image("res/hoe.png");
 			Bucket = new Image("res/bucket.png");
 			
-			Title = new Image("res/bucket.png");
+//			Title = new Image("res/TitleSreen.png");
+		
 		
 			
 			

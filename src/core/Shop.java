@@ -3,26 +3,26 @@ package core;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-public class Title extends BasicGameState {
+public class Shop extends BasicGameState {
     
-    private Image titleImage;
+    private Image Shop;
     private int id;
     private StateBasedGame sbg;
 
-    public Title(int id) {
+    public Shop(int id) {
     	this.id = id;
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        titleImage = new Image("/res/TitleScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
+        Shop = new Image("/res/ShoppeScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
         this.sbg = sbg;
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
         // Draw the title image at the center of the screen
-        titleImage.draw((Main.getScreenWidth() - titleImage.getWidth()) / 2, (Main.getScreenHeight() - titleImage.getHeight()) / 2);
+        Shop.draw((Main.getScreenWidth() - Shop.getWidth()) / 2, (Main.getScreenHeight() - Shop.getHeight()) / 2);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Title extends BasicGameState {
 
     @Override
     public int getID() {
-        return 0; // You can return a unique ID for this state
+        return 2; // You can return a unique ID for this state
     }
     
     public void keyPressed(int key, char c)
