@@ -14,7 +14,7 @@ public class PineTree extends Tree {
         maturity = 5; // Adjust this value based on your requirements
         setSheet();
         value = (10); // Adjust the value based on your requirements
-        image = Images;
+        image = Images.pineTree;
         setHealth();
     }
 

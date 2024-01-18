@@ -13,6 +13,7 @@ import item.Item;
 import world.entity.Entity;
 import world.entity.plant.crop.Corn;
 import world.entity.plant.crop.Potato;
+import world.entity.plant.tree.PineTree;
 import world.entity.rock.Rock;
 import world.terrain.Dirt;
 import world.terrain.Grass;
@@ -143,6 +144,18 @@ public class World {
 					if (input == 'r') {
 	                    // If found, add a Rock entity to that cell
 	                    addEntity(new Rock(), i, j);
+	                }
+					
+					
+					if (input == 't') {
+	                    // If found, set the terrain to grass
+	                    setTerrain(cells[i][j], '.');
+
+	                    // Add a PineTree entity to that cell with full maturity
+	                    addEntity(new PineTree(5, true), i, j);
+	                } else {
+	                    // Set the terrain based on the character in the map file
+	                    setTerrain(cells[i][j], input);
 	                }
 				}
 				

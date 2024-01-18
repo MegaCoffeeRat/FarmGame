@@ -56,6 +56,7 @@ public class Shop extends BasicGameState {
         renderMoney(g);
         renderWares(g);
         Game.getItems().render(g);
+        Game.renderScore(g);
     }
     
     public void renderDays(Graphics g) {

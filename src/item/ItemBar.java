@@ -130,10 +130,7 @@ public class ItemBar {
 			}
 		}
 	}
-	
-//	 public ArrayList<Item> getItems() {
-//	        return items;
-//	    }
+
 
 	
 	

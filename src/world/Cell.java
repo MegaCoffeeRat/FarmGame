@@ -107,30 +107,7 @@ public class Cell {
 		entity = e;
 		entity.setCell(this);
 	}
-	
-	
-//	public int getXPixel()
-//	{
-//		return getX()*getWidth();
-//	}
-//	
-//
-//	public int getYPixel()
-//	{
-//		return getY() * getHeight();
-//	}
-//	
-//	boolean isMouseOver(int x, int y)
-//	{
-//		int cellX = getX() * getWidth();
-//		int cellY = getY() * getHeight();
-//		
-//	   return x >= cellX && x <= cellX + getWidth() && y >= cellY && y <= cellY + getHeight();
-//
-//	}
-	
-	
-	// In class Cell
+
 	public int getXPixel() {
 	    return getX() * getWidth();
 	}

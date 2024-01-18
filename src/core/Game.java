@@ -19,6 +19,7 @@ public class Game extends BasicGameState
 	private static int money = 100;
 	private static ItemBar itemBar;
 	public static GameContainer gc;
+	public static int lifeTimeScore;
 	
 	private static int curStamina;
 	private static int maxStamina;
@@ -119,7 +120,13 @@ public class Game extends BasicGameState
 	 public static int getCurrentDay() {
 	        return days;
 	    }
-
+	public static void renderScore(Graphics g)
+	{
+//		g.setFont(Fonts.big);
+		g.setColor(Color.yellow);
+		g.drawString("Score: " + lifeTimeScore, Main.getScreenWidth() - (Main.getScreenWidth()/7), Main.getScreenHeight() - (Main.getScreenHeight()/9));
+		
+	}
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException 
 	{
 		// This code renders shapes and images every frame.
@@ -133,6 +140,7 @@ public class Game extends BasicGameState
 		itemBar.render(g);
 		renderStamina(g);
 		renderDays(g);
+		renderScore(g);
 		
 
 		System.out.println(curStamina);
@@ -210,7 +218,7 @@ public class Game extends BasicGameState
 	
 	public static void gainMoney(int amount) {
 	    money += amount;
-	    lifetimeEarnings += amount;
+	    lifeTimeScore += amount;
 	}
 
 	public static void spendMoney(int amount)

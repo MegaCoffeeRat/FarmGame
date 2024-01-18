@@ -29,6 +29,8 @@ public class Images {
 	public static Image Shop;
 	public static Image Rock;
 	
+	public static Image pineTree;
+	
 	
 	
 	public static void loadImages()
@@ -59,6 +61,9 @@ public class Images {
 			
 			
 			Rock = new Image("res/images/nature/rock.png");
+			
+			pineTree = new Image ("res/images/nature/Tree.png");
+			
 			
 			
 			
