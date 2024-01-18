@@ -39,14 +39,7 @@ abstract public class Plant extends Entity {
     	int h = Cell.getHeight();
     	
     	super.render(g);
-    	g.drawString("Grown: " + daysGrown, cell.getX(), cell.getY() + 100);    	
-//    	if(isMature())
-//    	{
-//    		g.setColor(Color.black);
-//    		g.setLineWidth(4);
-//    		g.drawOval(cell.getX()*w, cell.getY()*h, w, h);
-//    		g.resetLineWidth();
-//    	}	
+
     }
     
     public void setImage()

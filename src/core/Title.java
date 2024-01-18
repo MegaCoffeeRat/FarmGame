@@ -15,7 +15,7 @@ public class Title extends BasicGameState {
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        titleImage = new Image("/res/TitleScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
+        titleImage = new Image("/res/images/background/TitleScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
         this.sbg = sbg;
     }
 

@@ -17,13 +17,12 @@ public class Game extends BasicGameState
 	private World world;
 	public static int barSpace;
 	private static int money = 100;
-	private ItemBar itemBar;
+	private static ItemBar itemBar;
 	public static GameContainer gc;
 	
 	private static int curStamina;
 	private static int maxStamina;
 	public static final int BASE_STAMINA = 100;
-	private static ItemBar items;
 	
 	public static int lifetimeEarnings = 0;
 	
@@ -45,19 +44,19 @@ public class Game extends BasicGameState
 	
 	
 	public static ItemBar getItems() {
-        if (items == null) {
-            items = new ItemBar();
+        if (itemBar == null) {
+        	itemBar = new ItemBar();
         }
-        return items;
+        return itemBar;
     }
 	
 	
 	
 	public static ItemBar getItemBar() {
-        if (items == null) {
-            items = ItemBar.getInstance();
+        if (itemBar == null) {
+        	itemBar = ItemBar.getInstance();
         }
-        return items;
+        return itemBar;
     }
 	
 	
@@ -145,7 +144,7 @@ public class Game extends BasicGameState
 	{
 		g.setFont(Fonts.big);
 		g.setColor(Color.black);
-		g.drawString("Days:  " + World.days, 100, 50);
+		g.drawString("Days:  " + World.days, Main.getScreenWidth() - (Main.getScreenWidth()/8), Main.getScreenHeight()/10 );
 	}
 	public void renderMoney(Graphics g)
 	{

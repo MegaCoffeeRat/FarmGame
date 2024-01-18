@@ -21,7 +21,6 @@ public class Shop extends BasicGameState {
     private Image Shop;
     private int id;
     private StateBasedGame sbg;
-    private ItemBar itemBar;
     int selectedIndex = -1;
     
     
@@ -34,16 +33,18 @@ public class Shop extends BasicGameState {
     public Shop(int id) {
     	this.id = id;
     	
-    	shopItems.add(new Bucket());
-    	shopItems.add(new Hoe());
+    	
+    	shopItems.add(new PotatoSeed());
     	shopItems.add(new CornSeed());
     	shopItems.add(new PotatoSeed());
+    	shopItems.add(new PotatoSeed());
+    	
     	
     }
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
-        Shop = new Image("/res/ShoppeScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
+        Shop = new Image("/res/images/background/shopScreen.png").getScaledCopy(Main.getScreenWidth(), Main.getScreenHeight());
         this.sbg = sbg;
     }
 
@@ -55,15 +56,13 @@ public class Shop extends BasicGameState {
         renderMoney(g);
         renderWares(g);
         Game.getItems().render(g);
-        
-        
     }
     
     public void renderDays(Graphics g) {
-        g.setFont(Fonts.big);
-        g.setColor(Color.white);
-        
-        g.drawString("Days: " + World.days(), 100, 50);
+
+		g.setFont(Fonts.big);
+		g.setColor(Color.white);
+		g.drawString("Days:  " + World.days, Main.getScreenWidth() - (Main.getScreenWidth()/8), Main.getScreenHeight()/10 );
     }
 
     public void renderMoney(Graphics g) {
@@ -83,7 +82,7 @@ public class Shop extends BasicGameState {
 
     @Override
     public int getID() {
-        return 2; // You can return a unique ID for this state
+        return 2;
     }
     
     public void keyPressed(int key, char c)
@@ -148,11 +147,11 @@ public class Shop extends BasicGameState {
              Item item = shopItems.get(i);
 
              // Reset yPosition for each item
-             yPosition = startYPosition + i * 20;
+             yPosition = startYPosition + i * 40 + 10;
 
-             // Display index + 1, item name, and item cost
              g.setColor(Color.white);
-             g.drawString((i + 1) + ". " + item.getName() + " - $" + item.getCost(), xPosition, yPosition);
+             g.drawString((i + 1) + ". " + item.getName() + " - $" + item.getCost(), 50, yPosition);
+             
          } 
     }
     

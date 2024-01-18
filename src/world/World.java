@@ -13,6 +13,7 @@ import item.Item;
 import world.entity.Entity;
 import world.entity.plant.crop.Corn;
 import world.entity.plant.crop.Potato;
+import world.entity.rock.Rock;
 import world.terrain.Dirt;
 import world.terrain.Grass;
 import world.terrain.Terrain;
@@ -80,6 +81,7 @@ public class World {
          {
         	 cell.setTerrain(new Water());
          }
+       
 	}
 	
 	
@@ -135,7 +137,16 @@ public class World {
 				{
 					char input = row.charAt(i);
 					setTerrain(cells[i][j], input);
+					
+					
+					
+					if (input == 'r') {
+	                    // If found, add a Rock entity to that cell
+	                    addEntity(new Rock(), i, j);
+	                }
 				}
+				
+				 
 			}
 		}
 		catch(FileNotFoundException e)

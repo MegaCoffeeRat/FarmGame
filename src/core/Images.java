@@ -27,6 +27,7 @@ public class Images {
 	
 	
 	public static Image Shop;
+	public static Image Rock;
 	
 	
 	
@@ -35,26 +36,33 @@ public class Images {
 		try
 		{
 			//main png's
-			dirt = new Image("res/dirt.png");
-			grass = new Image("res/grass.png");
-			gray = new Image("res/gray.png");
-			drySoil = new Image("res/drySoil.png");
-			wetSoil = new Image("res/wetSoil.png");
-			water = new Image("res/water.png");
+			dirt = new Image("res/images/terrain/dirt.png");
+			grass = new Image("res/images/terrain/grass.png");
+			gray = new Image("res/images/terrain/gray.png");
+			drySoil = new Image("res/images/terrain/drySoil.png");
+			wetSoil = new Image("res/images/terrain/wetSoil.png");
+			water = new Image("res/images/terrain/water.png");
 			
 			//crops
-			corn = new SpriteSheet("res/corn.png", 32,48,0);
-			potato = new SpriteSheet("res/potato.png", 32,48,0);
+			corn = new SpriteSheet("res/images/crops/corn.png", 32,48,0);
+			potato = new SpriteSheet("res/images/crops/potato.png", 32,48,0);
 			
 			//seeds
-			CornSeed = new Image("res/cornSeed.png");
-			PotatoSeed = new Image("res/potatoSeed.png");
+			CornSeed = new Image("res/images/items/cornSeed.png");
+			PotatoSeed = new Image("res/images/items/potatoSeed.png");
 
 			
-			Hoe = new Image("res/hoe.png");
-			Bucket = new Image("res/bucket.png");
+			Hoe = new Image("res/images/items/hoe.png");
+			Bucket = new Image("res/images/items/bucketFull.png");
 			
 //			Title = new Image("res/TitleSreen.png");
+			
+			
+			Rock = new Image("res/images/nature/rock.png");
+			
+			
+			
+			
 		
 		
 			
