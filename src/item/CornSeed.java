@@ -6,15 +6,13 @@ import world.entity.plant.crop.Crop;
 
 public class CornSeed extends CropSeed {
 
-	public CornSeed()
-	{
+	public CornSeed() {
 		img = Images.CornSeed;
 		setName("Corn");
 		setCost(4);
 	}
-	
-	public Crop makeCrop()
-	{
+
+	public Crop makeCrop() {
 		return new Corn();
 	}
 }

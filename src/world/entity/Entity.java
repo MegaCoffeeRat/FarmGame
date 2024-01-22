@@ -20,75 +20,58 @@ public abstract class Entity {
 	protected int damageTimer;
 	protected boolean damaged;
 	protected final int DAMAGE_EFFECT_DURATION = 100;
-	
+
 	public void takeDamage(int amount) {
-        curHealth -= amount;
+		curHealth -= amount;
 
-        // Set damageTimer to zero
-        damageTimer = 0;
+		// Set damageTimer to zero
+		damageTimer = 0;
 
-        // Set damaged to true
-        damaged = true;
+		// Set damaged to true
+		damaged = true;
 
-        if (curHealth < 0) {
-            curHealth = 0;
-        }
-    }
-	
-	public Entity()
-	{
-		
+		if (curHealth < 0) {
+			curHealth = 0;
+		}
 	}
+
+	public Entity() {
+
+	}
+
 	public abstract void nextDay();
+
 	public abstract boolean isValid(Terrain t);
-	
-	
-	public boolean isFocus()
-	{
+
+	public boolean isFocus() {
 		return focus;
 	}
-	
-	
-	
-	public void render(Graphics g)
-	{
+
+	public void render(Graphics g) {
 		int w = Cell.getWidth();
 		int h = Cell.getHeight();
-		image.draw(cell.getX() * w, cell.getY()*h -h/2, w, h*1.5f);
-		
-		
-		
+		image.draw(cell.getX() * w, cell.getY() * h - h / 2, w, h * 1.5f);
+
 		damageTimer++;
-		if(damaged && damageTimer < DAMAGE_EFFECT_DURATION)
-		{
-			image.setImageColor(1,  .6f,  .4f);
-		}
-		else
-		{
+		if (damaged && damageTimer < DAMAGE_EFFECT_DURATION) {
+			image.setImageColor(1, .6f, .4f);
+		} else {
 			image.setImageColor(1, 1, 1);
 		}
 	}
-	
-	
-	
-	public void setCell(Cell c)
-	{
+
+	public void setCell(Cell c) {
 		cell = c;
 	}
-	
-	public int getValue()
-	{
+
+	public int getValue() {
 		return value;
 	}
-	public boolean isExpired()
-	{
+
+	public boolean isExpired() {
 		return expired;
 	}
-	
+
 	abstract public void clicked();
-	
-	
-	
-	
-	
+
 }

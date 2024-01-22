@@ -13,7 +13,7 @@ public class ItemBar {
 
 	public ArrayList<Item> items = new ArrayList<Item>(); 
 	public int selectedIndex = -1;
-	public int MAX_ITEMS = 10;
+	public int MAX_ITEMS = 16;
 	public ItemBar()
 	{
 		items.add(new Hoe());
